@@ -16,9 +16,19 @@ namespace MonitoringAssistant.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Report> GetReports()
+        public IActionResult GetReports()
         {
-            return _storageFacade.GetReports();
+            return Ok(_storageFacade.GetReports());
+        }
+
+        [HttpPost]
+        public IActionResult CreateReport([FromBody] Report report)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            var id = _storageFacade.UpdateReport(report);
+            return Ok(id);
         }
     }
 }

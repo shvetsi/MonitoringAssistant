@@ -27,5 +27,12 @@ namespace MonitoringAssistant.Infrastructure
         {
             return _reports.Find(report => report.Id == id).ToList();
         }
+
+        public string UpdateReport(Report report)
+        {
+            report.Id = _reports.CountDocuments(f => true).ToString();
+            _reports.InsertOne(report);
+            return report.Id;
+        }
     }
 }

@@ -29,6 +29,7 @@ namespace MonitoringAssistant
             var mongoClient = new MongoClient(connectionString);
             services.AddSingleton<IMongoDatabase>(mongoClient.GetDatabase("MonitoringAssistantDB"));
             services.AddSingleton<IStorage, MongoStorage>();
+            services.AddSingleton<StorageFaсade>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

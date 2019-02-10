@@ -18,5 +18,10 @@ namespace MonitoringAssistant.Infrastructure
         {
             return _storage.GetReports();
         }
+
+        public string UpdateReport(Report report)
+        {
+            return _storage.UpdateReport(report);
+        }
     }
 }

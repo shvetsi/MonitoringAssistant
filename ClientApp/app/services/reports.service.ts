@@ -22,6 +22,8 @@ export class ReportsService {
     }
 
     saveReport(report: Report){
+        
+        console.log("saveReport");
         return this.http.post(this.reportsEndpoint, report)
             .map(res => res.json)
     }

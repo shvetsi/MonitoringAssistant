@@ -29,7 +29,14 @@ export class ReportsHistoryComponent {
             success => this.selectedItem = success ? report : this.selectedItem);
     }
 
+    public createNew() {
+        console.log("createNew");
+        let report = {id: "", userName: "user", creationDate: new Date()};
+        let response = this.reportsService.saveReport(report);
+    }
+
     public goBack(){
+        console.log("goBack");
         this.router.navigate(["/home"])
     }
 }
