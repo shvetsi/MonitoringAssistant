@@ -1,0 +1,64 @@
+<div style="text-align:center">
+    <h1>
+        {{ title }}
+    </h1>
+</div>
+<div class="main">
+    <label class="look-like-btn">Environment info</label>
+    <div class="bordered-div margin-row">
+        <div class="row ">
+            <div class="col-xs-4">
+                <label>Data center</label>
+                <select class="form-control" name="dataCenter" [(ngModel)]="environmentInfo.dataCenter">
+                    <option  *ngFor="let dc of dataCenters" [value]="dc">
+                        {{dc}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-xs-4">
+                <label>Environment</label>
+                <select class="form-control" name="environment" [(ngModel)]="environmentInfo.environment">
+                    <option  *ngFor="let env of environments" [value]="env">
+                        {{env}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-xs-4">
+                <label>Project</label>
+                <select class="form-control" name="project" [(ngModel)]="environmentInfo.project">
+                    <option  *ngFor="let proj of projects" [value]="proj">
+                        {{proj}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <label>Machines</label>
+        <div class="bordered-div">
+            <ul *ngFor="let m of machines">
+                    <li class="inline-div"><input type="checkbox" style="margin: 5px" [(ngModel)]="isChecked" (change)="machineSelectionChanged(isChecked,m)">{{m}}</li>
+                </ul>
+        </div>
+    </div>
+    <br/>
+    <button type="button" class="btn btn-info small-btn no-bottom-border" data-toggle="collapse" data-target="#grafana">Grafana monitor</button>
+    <div id="grafana" class="collapse bordered-div">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+    <br/>
+    <button type="button" class="btn btn-info small-btn no-bottom-border" data-toggle="collapse" data-target="#kibana">Kibana monitor</button>
+    <div id="kibana" class="collapse bordered-div">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+    <br/>
+    <button type="button" [ngClass]="{'btn btn-info small-btn': true, 'no-bottom-border': isCollapsed}" data-toggle="collapse" data-target="#consul" (click)="isCollapsed=!isCollapsed">Consul monitor</button>
+    <div id="consul" class="collapse bordered-div">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+</div>

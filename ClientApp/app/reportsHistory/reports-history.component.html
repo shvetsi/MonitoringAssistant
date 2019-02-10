@@ -1,0 +1,28 @@
+<div style="text-align:center">
+    <h1>
+        {{ title }}
+    </h1>
+</div>
+<div class="main">
+    <div class="row">
+        <div class="col-sm-3">       
+            <div style="display: inline-block">     
+                <button class="button small-square-btn" (click)="goBack()">
+                    <i class="arrow left"></i>
+                </button>
+                <button class="button small-square-btn" (click)="createNewClick()">+</button>
+            </div>  
+            <div class="blue-border scrollbar scrollbar-primary no-spaces list-container">
+                <ul class="force-overflow">
+                    <li *ngFor="let report of reports"
+                    (click)="onSelect(report)"
+                    class="reports-li"
+                    [class.selected-li]="report == selectedItem">{{report.creationDate}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

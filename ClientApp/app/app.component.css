@@ -1,0 +1,144 @@
+:host /deep/ button{
+    width: 225px;
+    height: 100px;
+    box-shadow: none;
+    border-radius: 0px;
+    border-color: rgb(91, 173, 255);
+    margin: 20px;
+    color: rgb(60, 115, 218);
+    background: rgb(239, 248, 255);
+    font-size: 18px;
+    font-weight: bold
+}
+
+:host /deep/ h1{
+    color: rgb(60, 115, 218);
+}
+
+:host /deep/ button.home:active{
+    width: 235px;    
+    height: 110px;
+    margin: 15px;
+    box-shadow: none;
+}
+
+:host /deep/ button.small-btn{
+    height: 50px; 
+    margin: 0px 0px 0px 0px
+}
+
+:host /deep/ button.small-square-btn{
+    width: 50px; 
+    height: 50px; 
+    margin: 0px 3px 0px 0px
+}
+:host /deep/ button.small-btn.no-bottom-border{
+    border-bottom: none;
+}
+
+:host /deep/ button.extra-small-btn{
+    width: 28px; 
+    height: 28px; 
+    margin: 0px 0px 0px 5px;
+}
+
+:host /deep/ div.main{
+    width: 80%;
+    margin: 0px auto;
+}
+
+:host /deep/ div.bordered-div{
+    border: solid rgb(60, 115, 218);
+    border-width: 1px;
+    padding: 15px;
+}
+
+:host /deep/ div.inline-div{
+    display: inline-block;
+}
+
+:host /deep/ div#container {
+    position: relative; /* needed for footer positioning*/
+    height: auto !important; /* real browsers */
+    min-height: 100%; /* real browsers */
+}
+:host /deep/ .list-container{
+    position: relative; /* needed for footer positioning*/
+    height: 80vh; /* real browsers */
+}
+:host /deep/ ul {
+    display: inline-block;
+    list-style: none;
+}
+
+:host /deep/ li.reports-li {
+    cursor: pointer;
+    margin:0px;
+    padding-left:10px;
+    color:rgb(60, 115, 218);
+    font-weight: 100
+}
+
+:host /deep/ li.selected-li {
+    background: rgb(91, 173, 255);
+}
+
+:host /deep/ li:hover {
+    background-color: rgb(91, 173, 255);   
+}
+:host /deep/ .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+:host /deep/ label.look-like-btn{
+    width: 225px;
+    height: 50px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    vertical-align: middle;
+    border: solid 1px;
+    border-bottom: none;
+    border-color: rgb(91, 173, 255);
+    color: rgb(60, 115, 218);
+    background: rgb(239, 248, 255);
+    font-size: 18px;
+    font-weight: bold
+}
+
+:host /deep/ .force-overflow {
+    min-height: 250px;
+}
+
+:host /deep/ .scrollbar {
+    float: left;
+    overflow-y: scroll;
+}
+
+:host /deep/ .scrollbar-primary::-webkit-scrollbar {
+    width: 8px;
+    border-left: solid rgb(49, 95, 182);
+    border-left-width: 1px;
+}
+  
+    :host /deep/ .scrollbar-primary::-webkit-scrollbar-thumb {
+      border-radius: none;
+      background-color: rgb(60, 115, 218);
+}
+
+:host /deep/ .no-spaces{
+    margin: 0px;
+    padding: 0px;
+}
+
+:host /deep/ i {
+    border: solid rgb(60, 115, 218);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+:host /deep/ .blue-border{
+    border: solid rgb(91, 173, 255);
+    border-width: 1px
+}
