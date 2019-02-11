@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http'; 
 import 'rxjs/add/operator/map';
-import { Report } from '../../shared/models/report';
+import { Report, CreatedReport } from '../../shared/models/report';
 import { Observable } from 'rxjs/Observable';
 import { forEach } from "@angular/router/src/utils/collection";
 
 @Injectable()
 export class ReportsService {
-    private readonly reportsEndpoint = "api/reports"
+    private readonly reportsEndpoint = "/api/reports"
     constructor(private http: Http) {
     }
 
@@ -21,9 +21,8 @@ export class ReportsService {
             .map(res => this.extractReport(res, this))
     }
 
-    saveReport(report: Report){
-        
-        console.log("saveReport");
+    saveReport(report: CreatedReport){
+        console.log(report);
         return this.http.post(this.reportsEndpoint, report)
             .map(res => res.json)
     }
@@ -54,7 +53,7 @@ export class ReportsService {
     private createReport(json: any) {
         let report: Report = {
             id: json.id,
-            userName: json.userName,
+            user: json.user,
             creationDate: json.creationDate,
         }
         return report;

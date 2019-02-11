@@ -1,5 +1,10 @@
 export class Report {
     id = ""
-    userName = ""
-    creationDate = new Date()
+    user = ""
+    creationDate = ""
+}
+
+export class CreatedReport {
+    id = ""
+    user = ""
 }

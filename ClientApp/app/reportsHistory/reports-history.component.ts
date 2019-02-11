@@ -31,8 +31,9 @@ export class ReportsHistoryComponent {
 
     public createNew() {
         console.log("createNew");
-        let report = {id: "", userName: "user", creationDate: new Date()};
-        let response = this.reportsService.saveReport(report);
+        let report = {id: "", user: "user"};
+        let response = this.reportsService.saveReport(report)
+            .subscribe(response => console.log(response));
     }
 
     public goBack(){
