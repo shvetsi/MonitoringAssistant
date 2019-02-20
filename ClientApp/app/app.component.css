@@ -43,8 +43,11 @@
 }
 
 :host /deep/ div.main{
+    margin: 5px;
+    padding: 10px;
     width: 80%;
     margin: 0px auto;
+    padding: 20px;
 }
 
 :host /deep/ div.bordered-div{
@@ -106,6 +109,27 @@
     font-weight: bold
 }
 
+:host /deep/ label.caption {
+    width: 150px;
+    height: 30px;
+    vertical-align: middle;
+    border: solid 1px;
+    border-color: rgb(91, 173, 255);
+    color: rgb(60, 115, 218);
+    background: rgb(224, 236, 245);
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+:host /deep/ label.value {
+    height: 30px;
+    vertical-align: middle;
+    border-bottom: solid 1px;
+    border-color: rgb(91, 173, 255);
+    padding: 5px;
+}
+
 :host /deep/ .force-overflow {
     min-height: 250px;
 }
@@ -129,6 +153,14 @@
 :host /deep/ .no-spaces{
     margin: 0px;
     padding: 0px;
+}
+
+:host /deep/ .margin-bottom-10px {
+    margin-bottom: 10px;
+}
+
+:host /deep/ .float-right {
+    float: right;
 }
 
 :host /deep/ i {

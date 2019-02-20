@@ -54,7 +54,8 @@ export class ReportsService {
         let report: Report = {
             id: json.id,
             user: json.user,
-            creationDate: json.creationDate,
+            date: json.creationDate,
+            incidents: []
         }
         return report;
     }

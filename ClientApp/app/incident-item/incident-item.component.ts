@@ -1,5 +1,6 @@
-import { Component } from "@angular/core"
+import { Component, Input } from "@angular/core"
 import { Router } from "@angular/router";
+import { Incident } from "../../shared/models/incident";
 
 @Component({
     selector: "incident-item",
@@ -7,9 +8,7 @@ import { Router } from "@angular/router";
     styleUrls: [ "incident-item.component.css" ]
 })
 export class IncidentItemComponent{
+    @Input() incident: Incident = new Incident();    
+    @Input() editMode: boolean = true;
     constructor(){}
-    machineNames: string[] = [];
-    description = "";
-    actions: string[] = [];
-    screenShots: string[] = [];
 }

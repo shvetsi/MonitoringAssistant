@@ -1,7 +1,10 @@
+import { Incident } from "./incident";
+
 export class Report {
     id = ""
     user = ""
-    creationDate = ""
+    date = ""
+    incidents: Incident[] = []
 }
 
 export class CreatedReport {

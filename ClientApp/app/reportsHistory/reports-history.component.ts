@@ -10,7 +10,7 @@ import { ReportsService } from "../services/reports.service";
 export class ReportsHistoryComponent {
     title = "Reports history"
     reports: Report[] = [];
-    private selectedItem: any;
+    private selectedReport: any;
     constructor(private router: Router, private reportsService: ReportsService) {
     }
 
@@ -26,14 +26,15 @@ export class ReportsHistoryComponent {
 
     public onSelect(report: Report){
         this.router.navigate(["/reports",report.id]).then(
-            success => this.selectedItem = success ? report : this.selectedItem);
+            success => this.selectedReport = success ? report : this.selectedReport);
     }
 
     public createNew() {
         console.log("createNew");
-        let report = {id: "", user: "user"};
-        let response = this.reportsService.saveReport(report)
-            .subscribe(response => console.log(response));
+        // let report = {id: "", user: "user"};
+        // let response = this.reportsService.saveReport(report)
+        //     .subscribe(response => console.log(response));
+        this.router.navigate(["/newReport"])
     }
 
     public goBack(){

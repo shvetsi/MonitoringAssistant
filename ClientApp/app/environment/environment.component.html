@@ -1,0 +1,46 @@
+<label class="look-like-btn">Environment info</label>
+<div class="bordered-div margin-row">
+    <div class="row ">
+        <div class="col-xs-4 form-group">
+            <label class="caption">Data center:</label>
+            <select *ngIf="editMode" class="form-control" name="dataCenter" [(ngModel)]="environmentInfo.dataCenter">
+                <option  *ngFor="let dc of dataCenters" [value]="dc">
+                    {{dc}}
+                </option>
+            </select>
+            <label class="value" *ngIf="!editMode">{{environmentInfo.dataCenter}}</label>
+        </div>
+        <div class="col-xs-4 form-group">
+            <label class="caption">Environment:</label>
+            <select *ngIf="editMode" class="form-control" name="environment" [(ngModel)]="environmentInfo.environment">
+                <option  *ngFor="let env of environments" [value]="env">
+                    {{env}}
+                </option>
+            </select>
+            <label class="value" *ngIf="!editMode">{{environmentInfo.environment}}</label>
+        </div>
+        <div class="col-xs-4 form-group">
+            <label class="caption">Project:</label>
+            <select *ngIf="editMode" class="form-control" name="project" [(ngModel)]="environmentInfo.project">
+                <option  *ngFor="let proj of projects" [value]="proj">
+                    {{proj}}
+                </option>
+            </select>
+            <label class="value" *ngIf="!editMode">{{environmentInfo.project}}</label>
+        </div>
+    </div>
+    <br>
+    <label class="caption">Machines:</label>
+    <div class="bordered-div">
+        <ng-container *ngIf="editMode">
+            <ul *ngFor="let m of machines">
+                <li class="inline-div"><input type="checkbox" style="margin: 5px" [(ngModel)]="isChecked" (change)="machineSelectionChanged(isChecked,m)">{{m}}</li>
+            </ul>
+        </ng-container>
+        <ng-container *ngIf="editMode">
+            <ul *ngFor="let m of incident.machineNames">
+                <li>{{m}}</li>
+            </ul>
+        </ng-container>
+    </div>
+</div>

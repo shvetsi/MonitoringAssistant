@@ -1,0 +1,17 @@
+<div class="main blue-border">
+    <div class="inline-div float-right">
+        <button class="btn btn-info small-btn" (click)="addIncident()">+ Add incident</button>
+    </div>
+        
+    <div class="inline-div form-group">
+        <label class="caption">Date: </label>
+        <label *ngIf="!editMode">{{report.date}}</label>
+        <input  style="float:left" class="form-control" *ngIf="editMode" [(ngModel)]="report.date"/>
+
+    </div>
+    <br/>
+    <br/>
+    <div *ngFor="let inc of report.incidents">
+        <incident-item class="margin-bottom-10px" [incident]="inc" [editMode]="editMode"></incident-item>
+    </div>
+</div>

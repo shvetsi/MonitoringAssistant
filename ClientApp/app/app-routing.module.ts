@@ -3,6 +3,7 @@ import { RouterModule } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { MonitoringComponent } from "./monitoring/monitoring.component";
 import { ReportsHistoryComponent } from "./reportsHistory/reports-history.component";
+import { ReportComponent } from "./report/report.component";
 
 @NgModule({
     imports:[RouterModule.forRoot([
@@ -22,6 +23,10 @@ import { ReportsHistoryComponent } from "./reportsHistory/reports-history.compon
         {
             path: "reportsHistory",
             component: ReportsHistoryComponent
+        },    
+        {
+            path: "newReport",
+            component: ReportComponent
         }
     ])],
 exports: [RouterModule]
