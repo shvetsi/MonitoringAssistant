@@ -1,10 +1,6 @@
 <div>
     <div class="inline-div float-right">
-        <label>Edit  </label>
-        <label class="switch">
-            <input type="checkbox" [checked]="editMode" (change)="editMode = !editMode">
-            <span class="slider"></span>
-        </label>
+        <button class="btn btn-info small-square-btn" (click)="changeEditMode()">{{modeCaption}}</button>
     </div>
     <environment [environmentInfo]="incident.environment" [editMode]="editMode"></environment>
     <br/>
@@ -23,8 +19,8 @@
     </div>
     
     <div class="form-group">
-        <label class="caption">Screenshots:</label>
-        <ul *ngFor="let s of incident.screenshots">
+        <label class="caption">Attachments:</label>
+        <ul *ngFor="let s of incident.attachments">
             <li><a href={{s}}>{{s}}</a></li>
         </ul>
     </div>

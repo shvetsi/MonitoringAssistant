@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { EnvironmentInfo } from "../../shared/models/environmentInfo";
+import { EnvironmentInfo } from "../../../shared/models/environmentInfo";
 import { Router } from "@angular/router";
 
 

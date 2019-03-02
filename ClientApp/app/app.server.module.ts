@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
     imports: [
         ServerModule,
         AppModuleShared
-    ]
-})
+    ]})
 export class AppModule {
 }

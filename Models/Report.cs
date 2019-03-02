@@ -6,7 +6,8 @@ namespace MonitoringAssistant.Models
     {
         public string Id { get; set; }
         public string User { get; set; }
-        public DateTime CreationDate { get; set; }
+        public DateTime Date { get; set; }
+        public Incident[] Incidents { get; set; }
 
     }
 }

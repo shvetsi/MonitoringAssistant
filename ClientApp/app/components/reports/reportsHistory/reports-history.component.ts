@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { Report } from "./../../shared/models/report"
-import { ReportsService } from "../services/reports.service";
+import { Report } from "./../../../shared/models/report"
+import { ReportsService } from "../../../shared/services/reports.service";
 
 @Component({
     selector: "reports-history",

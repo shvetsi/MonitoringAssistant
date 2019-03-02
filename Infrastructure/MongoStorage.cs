@@ -28,6 +28,7 @@ namespace MonitoringAssistant.Infrastructure
             return _reports.Find(report => report.Id == id).ToList();
         }
 
+//TODO: remove CountDocuments
         public string UpdateReport(Report report)
         {
             report.Id = _reports.CountDocuments(f => true).ToString();

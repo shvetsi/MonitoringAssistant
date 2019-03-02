@@ -1,9 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
-import { HomeComponent } from "./home/home.component";
-import { MonitoringComponent } from "./monitoring/monitoring.component";
-import { ReportsHistoryComponent } from "./reportsHistory/reports-history.component";
-import { ReportComponent } from "./report/report.component";
+import { HomeComponent } from "./components/home/home.component";
+import { MonitoringComponent } from "./components/monitoring/monitoring.component";
+import { ReportComponent } from "./components/reports/report/report.component";
 
 @NgModule({
     imports:[RouterModule.forRoot([
@@ -19,11 +18,7 @@ import { ReportComponent } from "./report/report.component";
         {
             path: "monitoring",
             component: MonitoringComponent
-        },    
-        {
-            path: "reportsHistory",
-            component: ReportsHistoryComponent
-        },    
+        },       
         {
             path: "newReport",
             component: ReportComponent

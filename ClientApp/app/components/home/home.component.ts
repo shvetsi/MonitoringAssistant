@@ -15,7 +15,7 @@ export class HomeComponent{
         this.router.navigate(["/monitoring"]); 
     }
 
-    openReport() {
-        this.router.navigate(["/reportsHistory"]);
+    openReportsHistory() {
+        this.router.navigate(["/reports"]);
     }
 }

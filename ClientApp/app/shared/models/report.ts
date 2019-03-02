@@ -3,11 +3,6 @@ import { Incident } from "./incident";
 export class Report {
     id = ""
     user = ""
-    date = ""
+    date: Date = new Date();
     incidents: Incident[] = []
-}
-
-export class CreatedReport {
-    id = ""
-    user = ""
 }
