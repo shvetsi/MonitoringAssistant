@@ -1,5 +1,5 @@
 <label class="look-like-btn">Environment info</label>
-<div class="bordered-div margin-row">
+<div class="blue-border negative-margin white-background">
     <div class="row ">
         <div class="col-xs-4 form-group">
             <label class="caption">Data center:</label>
@@ -31,7 +31,7 @@
     </div>
     <br>
     <label class="caption">Machines:</label>
-    <div class="bordered-div">
+    <div class="blue-border">
         <ng-container *ngIf="editMode">
             <ul *ngFor="let m of machines">
                 <li class="inline-div"><input type="checkbox" style="margin: 5px" [(ngModel)]="isChecked" (change)="machineSelectionChanged(isChecked,m)">{{m}}</li>

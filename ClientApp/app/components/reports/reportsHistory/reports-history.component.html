@@ -5,11 +5,11 @@
 </div>
 <div class="main">
     <div class="row">
-        <div class="col-sm-4">       
-            <div class="row">     
+        <div class="col-lg-2">       
+            <!--div class="row">     
                 <button class="button small-square-btn" (click)="createNew()">+</button>
-            </div>  
-            <div class="row blue-border scrollbar scrollbar-primary no-spaces list-container">
+            </div-->  
+            <div class="blue-border scrollbar scrollbar-primary no-spaces list-container">
                 <ul class="force-overflow">
                     <li *ngFor="let report of reports"
                     (click)="onSelect(report)"
@@ -18,7 +18,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-sm-8">
+        <div class="col-lg-10">
             <router-outlet></router-outlet>
         </div>
     </div>

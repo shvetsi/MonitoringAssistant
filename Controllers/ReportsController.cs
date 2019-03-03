@@ -23,8 +23,15 @@ namespace MonitoringAssistant.Controllers
             return Ok(_storageFacade.GetReports());
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetReport(string id)
+        {
+            Debug.WriteLine($"GetReport with id {id}");
+            return Ok(_storageFacade.GetReport(id));
+        }
+
         [HttpPost]
-        public IActionResult CreateReport([FromBody] Report report)
+        public IActionResult UpdateReport([FromBody] Report report)
         {
             Debug.WriteLine("CreateReport");
             if (!ModelState.IsValid)

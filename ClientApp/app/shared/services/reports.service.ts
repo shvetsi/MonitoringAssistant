@@ -15,7 +15,7 @@ export class ReportsService {
 
     getReports(){
         return this.http.get(this.reportsEndpoint)
-            .map(res => this.extractReports(res, this))
+            .map(res => this.extractReports(res))
     }
 
     getReport(id: string){
@@ -29,60 +29,22 @@ export class ReportsService {
             .map(res => res.json)
     }
 
-    private extractReports(response: Response, self: any){
+    private extractReports(response: Response){
         console.log(response.json());
         let reports: Report[] = response.json() as Report[];
         console.log(reports);
-        // if(response != undefined)
-        // {        
-        //     let json = response.json();
-        //     json.forEach((r: any) => 
-        //     {
-        //         reports.push(self.createReport(r));
-        //     });
-        // }
         return reports;
     }
 
-    private extractReport(json: any){
-        console.log(json);
-        let report = JSON.parse(json);// self.createReport(json);        
+    private extractReport(response: Response){
+        console.log(response.json());
+        let report = response.json() as Report;        
         return report;
     }
     private handleError(error: any, caught: Observable<any>): any{        
         let message = "";
         return Observable.throw(caught);
     }
-
-    // private createReport(json: any) {
-    //     let report: Report = {
-    //         id: json.id,
-    //         user: json.user,
-    //         date: json.creationDate,
-    //         incidents: 
-    //     }
-    //     return report;
-    // }
-
-    // private createIncidents(json: any) {
-    //     let report: Report = {
-    //         id: json.id,
-    //         user: json.user,
-    //         date: json.creationDate,
-    //         incidents: 
-    //     }
-    //     return report;
-    // }
-
-    // private createIncident(json: any) {
-    //     let incident: Incident = {
-    //         environment: createEnvironment(,
-    //         description: json.description,
-    //         actions: json.actions,
-    //         screenShots: json.screenShots
-    //     }
-    //     return incident;
-    // }
 
     private createEnvironment(json: any) {
         let env: EnvironmentInfo = {

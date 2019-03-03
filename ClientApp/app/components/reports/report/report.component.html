@@ -1,4 +1,4 @@
-<div class="main blue-border">
+<div class="nested blue-border">
     <div class="inline-div float-right">
         <button class="btn btn-info small-btn" (click)="addIncident()">+ Add incident</button>
         <button class="btn btn-info small-btn" (click)="saveReport()">Save report</button>
@@ -14,7 +14,7 @@
     <br/>
     <div *ngFor="let inc of report.incidents">
         <div class="inline-div float-right">
-            <button class="btn btn-info small-square-btn" (click)="deleteIncident(inc)">x</button>
+            <button class="btn btn-info small-square-delete-btn" (click)="deleteIncident(inc)">x</button>
         </div>
         <incident-item class="margin-bottom-10px" [incident]="inc" [editMode]="editMode"></incident-item>
     </div>

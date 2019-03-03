@@ -30,7 +30,7 @@
 :host /deep/ button.small-square-btn{
     width: 50px; 
     height: 50px; 
-    margin: 0px 0px 0px 5px;
+    margin: 1px 5px 0px 5px;
     font-size: 14px;
 }
 :host /deep/ button.small-btn.no-bottom-border{
@@ -44,28 +44,24 @@
 }
 
 :host /deep/ div.main{
-    margin: 5px;
-    padding: 10px;
     width: 80%;
     margin: 0px auto;
     padding: 20px;
 }
 
-:host /deep/ div.bordered-div{
-    border: solid rgb(60, 115, 218);
-    border-width: 1px;
-    padding: 15px;
+:host /deep/ div.nested{
+    margin: 0px;
+    padding: 20px;
 }
 
 :host /deep/ div.inline-div{
     display: inline-block;
 }
 
-:host /deep/ div#container {
-    position: relative; /* needed for footer positioning*/
-    height: auto !important; /* real browsers */
-    min-height: 100%; /* real browsers */
+:host /deep/ div.negative-margin{
+    margin: -5px 0px 0px 0px;
 }
+
 :host /deep/ .list-container{
     position: relative; /* needed for footer positioning*/
     height: 80vh; /* real browsers */
@@ -108,7 +104,7 @@
     background: rgb(239, 248, 255);
     font-size: 18px;
     font-weight: bold;
-    padding-top: 5px
+    padding-top: 10px
 }
 
 :host /deep/ label.caption {
@@ -119,17 +115,9 @@
     border: solid 1px;
     border-color: rgb(91, 173, 255);
     color: rgb(60, 115, 218);
-    background: rgb(224, 236, 245);
+    background: rgb(239, 248, 255);
     font-size: 14px;
     font-weight: bold;
-    padding: 5px;
-}
-
-:host /deep/ label.value {
-    height: 30px;
-    vertical-align: middle;
-    border-bottom: solid 1px;
-    border-color: rgb(91, 173, 255);
     padding: 5px;
 }
 
@@ -144,13 +132,13 @@
 
 :host /deep/ .scrollbar-primary::-webkit-scrollbar {
     width: 8px;
-    border-left: solid rgb(49, 95, 182);
+    border-left: solid rgb(121, 161, 236);
     border-left-width: 1px;
 }
   
     :host /deep/ .scrollbar-primary::-webkit-scrollbar-thumb {
       border-radius: none;
-      background-color: rgb(60, 115, 218);
+      background-color: rgb(156, 187, 245);
 }
 
 :host /deep/ .no-spaces{
@@ -175,5 +163,10 @@
 
 :host /deep/ .blue-border{
     border: solid rgb(91, 173, 255);
-    border-width: 1px
+    border-width: 1px;
+    padding: 15px;
+}
+
+:host /deep/ .white-background {
+  background:white;
 }

@@ -7,6 +7,7 @@ namespace MonitoringAssistant.Infrastructure
     {
          IEnumerable<Incident> GetIncidents();
          IEnumerable<Report> GetReports();
+         Report GetReport(string id);
          string UpdateReport(Report report);
     }
 }

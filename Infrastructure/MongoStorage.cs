@@ -23,14 +23,19 @@ namespace MonitoringAssistant.Infrastructure
         {
             return _reports.Find(report => true).ToList();
         }
-        public IEnumerable<Report> GetReport(string id)
+        public Report GetReport(string id)
         {
-            return _reports.Find(report => report.Id == id).ToList();
+            return _reports.Find(report => report.Id == id).FirstOrDefault();
         }
 
 //TODO: remove CountDocuments
         public string UpdateReport(Report report)
         {
+            if(!string.IsNullOrEmpty(report.Id))
+            {
+                _reports.ReplaceOne(r => r.Id == report.Id, report);
+                return report.Id;
+            }
             report.Id = _reports.CountDocuments(f => true).ToString();
             _reports.InsertOne(report);
             return report.Id;
