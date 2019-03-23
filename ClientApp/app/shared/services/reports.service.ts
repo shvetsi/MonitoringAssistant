@@ -25,6 +25,8 @@ export class ReportsService {
 
     saveReport(report: Report){
         console.log(report);
+        let formData = new FormData();
+        //formData.append()
         return this.http.post(this.reportsEndpoint, report)
             .map(res => res.json)
     }
@@ -38,7 +40,8 @@ export class ReportsService {
 
     private extractReport(response: Response){
         console.log(response.json());
-        let report = response.json() as Report;        
+        let report = response.json() as Report;    
+        console.log(report);    
         return report;
     }
     private handleError(error: any, caught: Observable<any>): any{        

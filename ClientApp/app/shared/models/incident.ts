@@ -1,4 +1,4 @@
-import { EnvironmentInfo } from "./environmentinfo";
+import { EnvironmentInfo } from "./environmentInfo";
 
 export class Incident {
     environment: EnvironmentInfo = new EnvironmentInfo();

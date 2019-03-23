@@ -5,7 +5,7 @@ import { Report } from "../../shared/models/report";
 import { ReportsHistoryComponent } from "./reportsHistory/reports-history.component";
 import { ReportComponent } from "./report/report.component";
 import { ReportsRoutingModule } from "./reports-routing.module";
-import { SharedResourcesModule } from "../sharedResources/shared.resources.module";
+import { SharedResourcesModule } from "../sharedComponents/shared.resources.module";
 
 @NgModule({
     imports:[

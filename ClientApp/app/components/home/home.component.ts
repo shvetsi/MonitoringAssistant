@@ -15,6 +15,11 @@ export class HomeComponent{
         this.router.navigate(["/monitoring"]); 
     }
 
+    createNewReport() {
+        console.log("createNew");
+        this.router.navigate(["/newReport"])
+    }
+
     openReportsHistory() {
         this.router.navigate(["/reports"]);
     }

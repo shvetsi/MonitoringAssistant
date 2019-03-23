@@ -21,10 +21,15 @@ export class EnvironmentComponent {
     }
 
     ngOnInit() {
-        this.environmentInfo.dataCenter = this.dataCenters[0];
-        this.environmentInfo.environment = this.environments[0];
-        this.environmentInfo.project = this.projects[0];
-        this.environmentInfo.machines = this.selectedMachines;
+        if(this.environmentInfo.dataCenter == "" &&
+        this.environmentInfo.environment == "" &&
+        this.environmentInfo.project == "" &&
+        this.environmentInfo.machines == []) { 
+            this.environmentInfo.dataCenter = this.dataCenters[0];
+            this.environmentInfo.environment = this.environments[0];
+            this.environmentInfo.project = this.projects[0];
+            this.environmentInfo.machines = this.selectedMachines;
+           }
        }
 
     machineSelectionChanged(isChecked: boolean, machineName: string){

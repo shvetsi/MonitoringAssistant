@@ -29,14 +29,6 @@ export class ReportsHistoryComponent {
             success => this.selectedReport = success ? report : this.selectedReport);
     }
 
-    public createNew() {
-        console.log("createNew");
-        // let report = {id: "", user: "user"};
-        // let response = this.reportsService.saveReport(report)
-        //     .subscribe(response => console.log(response));
-        this.router.navigate(["/newReport"])
-    }
-
     public goBack(){
         console.log("goBack");
         this.router.navigate(["/home"])

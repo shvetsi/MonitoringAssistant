@@ -2,7 +2,7 @@ import { Component } from "@angular/core"
 import { Router, ActivatedRoute } from "@angular/router";
 import { Incident } from "../../../shared/models/incident";
 import { Report } from "../../../shared/models/report";
-import { EnvironmentInfo } from "../../../shared/models/environmentinfo";
+import { EnvironmentInfo } from "../../../shared/models/environmentInfo";
 import { ReportsService } from "../../../shared/services/reports.service";
 
 @Component({
@@ -31,12 +31,6 @@ export class ReportComponent {
                     )
                 }
             });
-        else
-        {
-            this.report.date = new Date();//.toDateString();
-            this.report.incidents.push({ environment: {dataCenter: "GC", environment: "Prod", machines: ["1", "2"], project: "ETL"}, description: "", attachments: [], actions: ["action1", "actnio2"]})
-            this.report.incidents.push({ environment: {dataCenter: "GC", environment: "Stg", machines: ["1", "2"], project: "ETL"}, description: "", attachments: [], actions: ["action1", "actnio2"]})
-        }
     }
 
     addIncident(){
@@ -54,4 +48,9 @@ export class ReportComponent {
     saveReport(){
         this.reportsService.saveReport(this.report).subscribe();
     }
+
+    // onIncidentChange(file: File){
+    //     console.log("onIncidentChange");
+    //     console.log(file);
+    //}
 }

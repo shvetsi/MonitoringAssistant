@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { MonitoringComponent } from "./components/monitoring/monitoring.component";
 import { ReportsService } from './shared/services/reports.service';
-import { SharedResourcesModule } from './components/sharedResources/shared.resources.module';
+import { SharedResourcesModule } from './components/sharedComponents/shared.resources.module';
 import { ReportsModule } from './components/reports/reports.module';
 
 @NgModule({

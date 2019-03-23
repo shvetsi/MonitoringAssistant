@@ -18,10 +18,6 @@ import { ReportComponent } from "./components/reports/report/report.component";
         {
             path: "monitoring",
             component: MonitoringComponent
-        },       
-        {
-            path: "newReport",
-            component: ReportComponent
         }
     ])],
 exports: [RouterModule]

@@ -21,6 +21,9 @@ import { ReportComponent } from "./report/report.component";
                         //canDeactivate: [CanDeactivateGuard]
                     }
                 ]
+            },{
+                path: "newReport",
+                component: ReportComponent
             }
         ])
     ],
