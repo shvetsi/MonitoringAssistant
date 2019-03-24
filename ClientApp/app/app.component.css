@@ -33,6 +33,14 @@
     margin: 1px 5px 0px 5px;
     font-size: 14px;
 }
+
+:host /deep/ button.extra-small-square-btn{
+    width: 24px; 
+    height: 24px; 
+    margin:1px 5px 0px 5px;
+    font-size: 8px;
+}
+
 :host /deep/ button.small-btn.no-bottom-border{
     border-bottom: none;
 }

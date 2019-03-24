@@ -13,7 +13,8 @@ export class IncidentItemComponent{
     @Input() editMode: boolean = false;
     //@Output() onChanged = new EventEmitter<File>();
     filePreviews: any[] = [];
-    files: File[] = [];
+    addedFiles: File[] = [];
+    addedAction: string = "";
     modeCaption: string = this.editMode ? "Save" : "Edit";
     constructor(){}
 
@@ -25,11 +26,24 @@ export class IncidentItemComponent{
 
     uploadImage(event: any) {
         let file: File = event.target.files[0];
-        this.files.push(file);
+        this.addedFiles.push(file);
         const reader = new FileReader();
         reader.onload = () => {
             this.filePreviews.push(reader.result);
         };
         reader.readAsDataURL(file);
+    }
+
+    addAction() {
+        if(this.addedAction != "" && this.incident.actions.indexOf(this.addedAction) < 0) {
+            this.incident.actions.push(this.addedAction);
+            this.addedAction = "";
+        }
+    }
+
+    deleteAction(action: string) {
+        let index = this.incident.actions.indexOf(action)
+        if(index >= 0)
+            this.incident.actions.splice(index, 1);
     }
 }
