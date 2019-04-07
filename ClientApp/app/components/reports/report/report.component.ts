@@ -34,7 +34,7 @@ export class ReportComponent {
     }
 
     addIncident(){
-        this.report.incidents.push({ environment: new EnvironmentInfo(), description: "", attachments: [], actions: [] })
+        this.report.incidents.unshift(new Incident())
     }
 
     deleteIncident(incident: Incident){
@@ -46,11 +46,6 @@ export class ReportComponent {
     }
 
     saveReport(){
-        this.reportsService.saveReport(this.report).subscribe();
+        this.reportsService.saveReport(this.report);
     }
-
-    // onIncidentChange(file: File){
-    //     console.log("onIncidentChange");
-    //     console.log(file);
-    //}
 }

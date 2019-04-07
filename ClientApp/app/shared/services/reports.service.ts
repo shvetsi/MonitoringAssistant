@@ -6,10 +6,12 @@ import { Observable } from 'rxjs/Observable';
 import { forEach } from "@angular/router/src/utils/collection";
 import { Incident } from '../../shared/models/incident';
 import { EnvironmentInfo } from '../../shared/models/environmentInfo';
+import { ReportDto } from '../dto/reportDto';
 
 @Injectable()
 export class ReportsService {
     private readonly reportsEndpoint = "/api/reports"
+    private readonly filesEndpoint = "/api/files"
     constructor(private http: Http) {
     }
 
@@ -25,10 +27,18 @@ export class ReportsService {
 
     saveReport(report: Report){
         console.log(report);
-        let formData = new FormData();
-        //formData.append()
-        return this.http.post(this.reportsEndpoint, report)
+        let reportDto = ReportDto.mapToDto(report)
+        this.http.post(this.reportsEndpoint, reportDto)
             .map(res => res.json)
+            .subscribe()
+
+        let formData = new FormData();
+        report.incidents.forEach(incident => {
+                incident.attachments.forEach(file => formData.append("files", file));
+                console.log(formData);
+                this.http.post(`${this.filesEndpoint}/${report.id}/${incident.id}`, formData)
+                    .map(res => res.json).subscribe();
+            });
     }
 
     private extractReports(response: Response){

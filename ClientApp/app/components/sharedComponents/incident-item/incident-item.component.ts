@@ -13,7 +13,6 @@ export class IncidentItemComponent{
     @Input() editMode: boolean = false;
     //@Output() onChanged = new EventEmitter<File>();
     filePreviews: any[] = [];
-    addedFiles: File[] = [];
     addedAction: string = "";
     modeCaption: string = this.editMode ? "Save" : "Edit";
     constructor(){}
@@ -26,7 +25,7 @@ export class IncidentItemComponent{
 
     uploadImage(event: any) {
         let file: File = event.target.files[0];
-        this.addedFiles.push(file);
+        this.incident.attachments.push(file);
         const reader = new FileReader();
         reader.onload = () => {
             this.filePreviews.push(reader.result);
