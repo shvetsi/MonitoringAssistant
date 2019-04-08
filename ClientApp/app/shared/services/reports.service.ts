@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http'; 
+import { Http, Response, RequestOptions, ResponseContentType } from '@angular/http'; 
 import 'rxjs/add/operator/map';
 import { Report } from '../../shared/models/report';
 import { Observable } from 'rxjs/Observable';
@@ -7,6 +7,7 @@ import { forEach } from "@angular/router/src/utils/collection";
 import { Incident } from '../../shared/models/incident';
 import { EnvironmentInfo } from '../../shared/models/environmentInfo';
 import { ReportDto } from '../dto/reportDto';
+import { IncidentDto } from '../dto/incidentDto';
 
 @Injectable()
 export class ReportsService {
@@ -24,13 +25,18 @@ export class ReportsService {
         return this.http.get(`${this.reportsEndpoint}/${id}`)
             .map(res => this.extractReport(res))
     }
-
+    
+    downloadFile(fileName: string) {
+        return this.http.get(`${this.filesEndpoint}/${fileName}`, {responseType: ResponseContentType.ArrayBuffer})
+    }
+    
     saveReport(report: Report){
         console.log(report);
         let reportDto = ReportDto.mapToDto(report)
         this.http.post(this.reportsEndpoint, reportDto)
-            .map(res => res.json)
-            .subscribe()
+            .subscribe(res => {
+                console.log(`res = ${res.json()}`)
+                report.id = res.json()})
 
         let formData = new FormData();
         report.incidents.forEach(incident => {
@@ -43,17 +49,37 @@ export class ReportsService {
 
     private extractReports(response: Response){
         console.log(response.json());
-        let reports: Report[] = response.json() as Report[];
+        let reportDtos: ReportDto[] = response.json() as ReportDto[];
+        let reports = reportDtos.map(r => this.mapFromDto(r))
         console.log(reports);
         return reports;
     }
 
     private extractReport(response: Response){
         console.log(response.json());
-        let report = response.json() as Report;    
+        let reportDto = response.json() as ReportDto;
+        let report = this.mapFromDto(reportDto);
         console.log(report);    
         return report;
     }
+
+    mapFromDto(reportDto: ReportDto) {
+        let report = ReportDto.mapFromDto(reportDto);
+        reportDto.incidents.forEach(i =>
+            {
+                let incident = IncidentDto.mapFromDto(i);
+                i.attachments.forEach(a =>
+                {
+                    this.downloadFile(a)
+                        .subscribe((res) => {
+                            incident.attachments.push(new File([res.arrayBuffer()], a));
+                        });
+                })
+                report.incidents.push(incident);
+            })
+        return report;
+    }
+
     private handleError(error: any, caught: Observable<any>): any{        
         let message = "";
         return Observable.throw(caught);

@@ -11,6 +11,6 @@ namespace MonitoringAssistant.Models
         public EnvironmentInfo Environment { get; set; }
         public string Description { get; set; }        
         public string[] Actions { get; set; }
-        public List<string> Attachments { get; set; }
+        public string[] Attachments { get; set; }
     }
 }

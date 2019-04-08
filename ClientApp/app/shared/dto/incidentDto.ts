@@ -11,4 +11,7 @@ export class IncidentDto {
     static mapToDto(incident: Incident) {
         return { id: incident.id, environment: EnvironmentInfoDto.mapToDto(incident.environment), description: incident.description, actions: incident.actions, attachments: [] }
     }
+    static mapFromDto(incident: IncidentDto): Incident {
+        return { id: incident.id, environment: EnvironmentInfoDto.mapFromDto(incident.environment), description: incident.description, actions: incident.actions, attachments: [] }
+    }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,6 +32,7 @@ namespace MonitoringAssistant.Controllers
             var incident = report?.Incidents.FirstOrDefault(i => i.Id == incidentId);
             if(incident != null)
             {
+                var list = new List<string>();
                 foreach (var f in files.Files)
                 {
                     var fileName = Guid.NewGuid() + Path.GetExtension(f.FileName);
@@ -39,8 +41,9 @@ namespace MonitoringAssistant.Controllers
                     {
                         await f.CopyToAsync(fileStream);
                     }
-                    incident.Attachments.Add(fileName);
+                    list.Add(fileName);
                 }
+                incident.Attachments = list.ToArray();
                 _storageFacade.UpdateReport(report);
             }
             return Ok();

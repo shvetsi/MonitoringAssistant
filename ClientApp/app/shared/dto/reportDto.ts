@@ -7,8 +7,12 @@ export class ReportDto {
     date: Date = new Date();
     incidents: IncidentDto[] = []
 
-    static mapToDto(report: Report) {
+    static mapToDto(report: Report): ReportDto {
         let inc = report.incidents.map(i => IncidentDto.mapToDto(i))
         return { id: report.id, user: report.user, date: report.date, incidents: inc }
+    }
+
+    static mapFromDto(report: ReportDto): Report {
+        return { id: report.id, user: report.user, date: report.date, incidents: [] }
     }
 }
