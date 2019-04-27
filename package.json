@@ -62,6 +62,7 @@
   },
   "dependencies": {
     "@types/file-saver": "^2.0.0",
-    "file-saver": "^2.0.1"
+    "file-saver": "^2.0.1",
+    "ste-events": "^1.4.10"
   }
 }

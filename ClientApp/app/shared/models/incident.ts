@@ -6,5 +6,5 @@ export class Incident {
     environment: EnvironmentInfo = new EnvironmentInfo();
     description = "";
     actions: string[] = [];
-    attachments: File[] = [];
+    attachments: any[] = [];
 }

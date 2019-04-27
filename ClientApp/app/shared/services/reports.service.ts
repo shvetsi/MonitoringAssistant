@@ -27,7 +27,17 @@ export class ReportsService {
     }
     
     downloadFile(fileName: string) {
-        return this.http.get(`${this.filesEndpoint}/${fileName}`, {responseType: ResponseContentType.ArrayBuffer})
+        let result = this.http.get(`${this.filesEndpoint}/${fileName}`).map(res => res.text())
+        console.log(result);
+        return result;
+    }
+
+    uploadFile(reportId: string, incidentId: string, file: File){
+        let formData = new FormData()
+        formData.append("file", file)
+        let result = this.http.post(`${this.filesEndpoint}/${reportId}/${incidentId}`, formData).map(res => res.text())
+        console.log(result);
+        return result;
     }
     
     saveReport(report: Report){
@@ -71,8 +81,8 @@ export class ReportsService {
                 i.attachments.forEach(a =>
                 {
                     this.downloadFile(a)
-                        .subscribe((res) => {
-                            incident.attachments.push(new File([res.arrayBuffer()], a));
+                        .subscribe((data) => {
+                            incident.attachments.push(data);
                         });
                 })
                 report.incidents.push(incident);

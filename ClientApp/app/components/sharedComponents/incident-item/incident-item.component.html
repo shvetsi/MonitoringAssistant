@@ -29,8 +29,8 @@
         
         <div class="form-group">
             <label class="caption">Attachments:</label>
-            <input class="btn btn-info" *ngIf="editMode" type="file" (change)="uploadImage($event)"/>
-            <img class="img-thumbnail" *ngFor="let f of filePreviews" src="{{f}}"/>
+            <input class="btn btn-info" *ngIf="editMode" type="file" (change)="addImage($event)"/>
+            <img class="img-thumbnail" *ngFor="let a of incident.attachments" src="{{a}}"/>
         </div>
     </div>
 </div>

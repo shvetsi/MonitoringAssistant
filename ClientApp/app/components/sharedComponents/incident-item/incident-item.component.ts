@@ -11,8 +11,7 @@ import * as FileSaver from 'file-saver';
 export class IncidentItemComponent{
     @Input() incident: Incident = new Incident();    
     @Input() editMode: boolean = false;
-    //@Output() onChanged = new EventEmitter<File>();
-    filePreviews: any[] = [];
+    @Output() onChanged = new EventEmitter<File>();
     addedAction: string = "";
     modeCaption: string = this.editMode ? "Save" : "Edit";
     constructor(){}
@@ -21,28 +20,29 @@ export class IncidentItemComponent{
         this.editMode = !this.editMode;
         this.modeCaption = this.editMode ? "Save" : "Edit";
 
+        if(!this.editMode)
+            this.onChanged.emit();
     }
 
-    uploadImage(event: any) {
+    addImage(event: any) {
+        console.log("addImage");
         let file: File = event.target.files[0];
-        this.incident.attachments.push(file);
-        const reader = new FileReader();
-        reader.onload = () => {
-            this.filePreviews.push(reader.result);
-        };
-        reader.readAsDataURL(file);
+        this.onChanged.emit(file);
     }
 
     addAction() {
         if(this.addedAction != "" && this.incident.actions.indexOf(this.addedAction) < 0) {
             this.incident.actions.push(this.addedAction);
             this.addedAction = "";
+            this.onChanged.emit();
         }
     }
 
     deleteAction(action: string) {
         let index = this.incident.actions.indexOf(action)
-        if(index >= 0)
+        if(index >= 0){
             this.incident.actions.splice(index, 1);
+            this.onChanged.emit();
+        }
     }
 }

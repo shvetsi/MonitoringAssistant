@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"
+import { Component, EventEmitter } from "@angular/core"
 import { Router, ActivatedRoute } from "@angular/router";
 import { Incident } from "../../../shared/models/incident";
 import { Report } from "../../../shared/models/report";
@@ -34,7 +34,20 @@ export class ReportComponent {
     }
 
     addIncident(){
-        this.report.incidents.unshift(new Incident())
+        let inc = new Incident()
+        this.report.incidents.unshift(inc)
+        this.saveReport()
+    }
+
+    updateFiles(inc: Incident, $event: any){
+        console.log("onChanged")
+        this.reportsService.uploadFile(this.report.id, inc.id, $event)
+            .subscribe((data: any) => 
+            {
+                console.log(data)
+                inc.attachments.push(data) 
+                console.log(inc.attachments)
+            })
     }
 
     deleteIncident(incident: Incident){

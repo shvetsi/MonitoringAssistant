@@ -16,6 +16,6 @@
         <div class="inline-div float-right">
             <button class="btn btn-info small-square-delete-btn" (click)="deleteIncident(inc)">x</button>
         </div>
-        <incident-item class="margin-bottom-10px" [incident]="inc" [editMode]="editMode"></incident-item>
+        <incident-item class="margin-bottom-10px" [incident]="inc" [editMode]="editMode" (onChanged)="updateFiles(inc, $event)"></incident-item>
     </div>
 </div>

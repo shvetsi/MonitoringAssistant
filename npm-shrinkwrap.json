@@ -5812,6 +5812,19 @@
       "integrity": "sha1-+vUbnrdKrvOzrPStX2Gr8ky3uT4=",
       "dev": true
     },
+    "ste-core": {
+      "version": "1.4.10",
+      "resolved": "https://registry.npmjs.org/ste-core/-/ste-core-1.4.10.tgz",
+      "integrity": "sha512-Z3tx7WG63TVYZ1RGx7TTi4DNRNZJfJ4huoM0uwMXpGlIKeHjMDNHhMT0n0H27n6NDXvVElv9m2Ug17wQeFUQLQ=="
+    },
+    "ste-events": {
+      "version": "1.4.10",
+      "resolved": "https://registry.npmjs.org/ste-events/-/ste-events-1.4.10.tgz",
+      "integrity": "sha512-qlU2oBGGDy4XjsDx8FNhQMM40oVqTQtTZNbO2aRaI6WGNXIW3+mZYzgilUby/+f1b/9MDO1PerDaBRbcoD8nTA==",
+      "requires": {
+        "ste-core": "1.4.10"
+      }
+    },
     "stream-browserify": {
       "version": "2.0.1",
       "resolved": "https://registry.npmjs.org/stream-browserify/-/stream-browserify-2.0.1.tgz",
